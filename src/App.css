@@ -3,8 +3,8 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  /* height: 4em; */
+  pointer-events: none; /* prevent interacting with the logo */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,24 +15,118 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 8em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-content: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.branding{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.social-icons{ /* social icons container */
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.social-icon{
+  height: 30px;
+  padding-right: 20px;
+}
+
+.social-icon:first-child{
+  padding-right: 12px; /* accounts for the twitter logo being wider */
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navigation Bar */
+nav{ /* Wrapper */
+  margin: 0 auto;
+  padding-top: 2em;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  max-width: 700px;
+}
+
+nav a{ /* Menu Icons */
+  display: inline-block;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+  padding: 1em 2em;
+  text-decoration: none;
+  color: #000;
+}
+
+nav label, #hamicon{ /* Hide hamburger icon for destop */
+  display: none;
+  font-size: 28pt
+}
+
+nav a:last-child{
+  border-right: 3px solid black;
+}
+
+nav a:hover{
+  background-color: #38B6FF;
+}
+
+/* Styles for mobiles */
+@media(max-width: 700px){
+  .App-header{
+    align-content: center;
+    flex-direction: column-reverse;
   }
-  to {
-    transform: rotate(360deg);
+
+  .social-icons{
+    display: none;
+  }
+
+  .branding{
+    justify-content: center; /* center the title */
+  }
+
+  .App-logo{
+    display:none;
+  }
+
+  /* Navigation Styles */
+  nav{
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  nav a{ /* Menu Items */
+    display: block; /* display stacked (column) */
+    border-right: 3px solid black;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+
+  nav a:last-child{ 
+    border-bottom: 3px solid black; /* fix borders */
+  }
+
+  nav label{ /* Show Hamburger Icon */
+    display: block;
+  }
+
+  #navitems{
+    display: none;
+  }
+
+  nav input:checked ~ #navitems {
+    display: block;
   }
 }
