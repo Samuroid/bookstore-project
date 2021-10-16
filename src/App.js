@@ -5,8 +5,8 @@ import igLogo from './ig-logo-60x60.png';
 import './App.css';
 import Storefront from './components/Storefront.jsx';
 
-function App() {
-  return (
+const Header = () => {
+  return(
     <div className="App">
       <header className="App-header">
       <div className="branding">
@@ -25,18 +25,39 @@ function App() {
         <input type="checkbox" id="hamicon" />
 
         <div id="navitems">
-          <a href="/home" alt="home link">Home</a>
-          <a href="/books" alt="home link">Books</a>
-          <a href="/magazines" alt="home link">Magazines</a>
-          <a href="/ebooks" alt="home link">E-Books</a>
-          <a href="/account" alt="home link">Account</a>
+          <a href="/" alt="Homepage link">Home</a>
+          <a href="/books" alt="Storefront link">Books</a>
+          <a href="/" alt="Homepage link">Magazines</a>
+          <a href="/" alt="Homepage link">E-Books</a>
+          <a href="/" alt="Homepage link">Account</a>
         </div>
       </nav>
-      
-      <Storefront />
-      
     </div>
-  );
+  )
+};
+
+const Homepage = () => {
+  return(
+    <div>
+      <Header />
+      <main>
+        <section>
+        <p>
+          Welcome to your local book store online.
+        </p>
+        </section>
+      </main>
+    </div>
+  )
+};
+
+const Bookstore = () => {
+  return(
+    <div>
+      <Header />
+      <Storefront />
+    </div>
+  )
 }
 
-export default App;
+export { Homepage, Bookstore };
