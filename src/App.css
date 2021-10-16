@@ -82,7 +82,69 @@ nav a:hover{
   background-color: #38B6FF;
 }
 
+/* Storefront */
+.storefront{ /* Wrapper */
+  display: flex;
+  justify-content: space-between;
+  margin: 3em auto;
+  max-width: 1000px;
+}
+
+.main-products{ /* Products Wrapper */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.main-products .book{ /* a Book */
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin: 0 10px 10px 10px;
+  padding: 0.4em;
+  width: 300px;
+  height: 260px;
+  outline: 2px solid black;
+}
+
+.book-info{
+  font-size: 10pt;
+  text-align: left;
+  padding-left: .4em;
+}
+
+.featured-products{
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-products .book{
+  display: flex;
+  flex-direction: column-reverse;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0.4em;
+  outline: 2px solid black;
+}
+
+/* a Book Article */
+
+.author{
+  display: inline;
+  padding-right: 5px;
+}
+
 /* Styles for mobiles */
+@media(max-width: 1000px){
+  /* Storefront */
+  .storefront{ /* Wrapper */
+    flex-direction: column-reverse;
+  }
+
+}
+
 @media(max-width: 700px){
   .App-header{
     align-content: center;

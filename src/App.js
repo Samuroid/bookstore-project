@@ -3,16 +3,17 @@ import twitterLogo from './twitter-logo-68x60.png';
 import fbLogo from './fb-logo-60x60.png';
 import igLogo from './ig-logo-60x60.png';
 import './App.css';
+import Storefront from './components/Storefront.jsx';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <div class="branding">
+      <div className="branding">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>The Book store</h1>
       </div>
-      <div class="social-icons">
+      <div className="social-icons">
         <img src={twitterLogo} className="social-icon" alt="Twitter logo" />
         <img src={fbLogo} className="social-icon" alt="Facebook logo" />
         <img src={igLogo} className="social-icon" alt="Instagram logo" />
@@ -20,7 +21,7 @@ function App() {
       </header>
 
       <nav>
-        <label for="hamicon">&#9776;</label>
+        <label htmlFor="hamicon">&#9776;</label>
         <input type="checkbox" id="hamicon" />
 
         <div id="navitems">
@@ -31,10 +32,9 @@ function App() {
           <a href="/account" alt="home link">Account</a>
         </div>
       </nav>
-
-      <main>
-
-      </main>
+      
+      <Storefront />
+      
     </div>
   );
 }
