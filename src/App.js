@@ -4,6 +4,7 @@ import fbLogo from './fb-logo-60x60.png';
 import igLogo from './ig-logo-60x60.png';
 import './App.css';
 import Storefront from './components/Storefront.jsx';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return(
@@ -25,10 +26,10 @@ const Header = () => {
         <input type="checkbox" id="hamicon" />
 
         <div id="navitems">
-          <a href="/" alt="Homepage link">Home</a>
-          <a href="/books" alt="Storefront link">Books</a>
+          <Link to="/">Home</Link>
+          <Link to="/books">Books</Link>
           <a href="/" alt="Homepage link">Magazines</a>
-          <a href="/" alt="Homepage link">E-Books</a>
+          <a href="/books" alt="Homepage link">E-Books</a>
           <a href="/" alt="Homepage link">Account</a>
         </div>
       </nav>
@@ -39,7 +40,7 @@ const Header = () => {
 const Homepage = () => {
   return(
     <div>
-      <Header />
+    <Header />
       <main>
         <section>
         <p>
@@ -54,10 +55,10 @@ const Homepage = () => {
 const Bookstore = () => {
   return(
     <div>
-      <Header />
+    <Header />
       <Storefront />
     </div>
   )
-}
+};
 
-export { Homepage, Bookstore };
+export { Header, Homepage, Bookstore };
