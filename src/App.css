@@ -106,6 +106,21 @@ nav a:hover{
   width: 300px;
   height: 260px;
   outline: 2px solid black;
+  z-index:9999;
+}
+
+.book-clickable{ /* clickable book element spanning the whole width and height of it's parent (.book) */
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 10px;
+  height: 10px;
+  outline: 1px solid red;
+  z-index: 9999;
+}
+
+.is-select{
+  box-shadow: inset 0px 0px 4px 4px darkslategray;
 }
 
 .book-info{
@@ -119,6 +134,7 @@ nav a:hover{
   flex-direction: column;
 }
 
+/* Featured Singular Book Items */
 .featured-products .book{
   display: flex;
   flex-direction: column-reverse;
@@ -129,11 +145,13 @@ nav a:hover{
   outline: 2px solid black;
 }
 
-/* a Book Article */
-
 .author{
   display: inline;
   padding-right: 5px;
+}
+
+.is-selected{
+  box-shadow: inset 0px 0px 40px 40px grey;
 }
 
 /* Styles for mobiles */
