@@ -1,4 +1,5 @@
 import React from 'react';
+import Book from './Book.jsx'
 
 export default class Storefront extends React.Component{
     state = {
@@ -43,26 +44,7 @@ export default class Storefront extends React.Component{
 
                 {
                 this.state.books.map((book, index) => {
-                    return <article id={"book" + index} key={index} onClick={(event)=>{handleClick(event)}} className="book">
-                        <a className="book-clickable" href={'/books/' + index}>
-                            
-                        </a>
-                        <div className="bookcover">
-                            <img src={ book.volumeInfo.imageLinks.smallThumbnail } alt={ book.volumeInfo.title } />
-                        </div>
-
-                        <div className="book-info" onClick={e=>{e.stopPropagation()}}>
-                        <h2>{ book.volumeInfo.title }</h2>
-
-                        { book.volumeInfo.authors.map((author, index) => { // Authors Render
-                            return <p className="author">{ author }</p>
-                        }) }
-
-                        <p>{"Pages: " + book.volumeInfo.pageCount }</p>
-
-                        <p className="book-desc">{ book.volumeInfo.description.substring(0, 100) + "..." }</p>
-                        </div>
-                    </article>
+                    return <Book book={book} id={index} key={index} />
                 })}
 
             </section>
