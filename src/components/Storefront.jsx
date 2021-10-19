@@ -19,17 +19,12 @@ export default class Storefront extends React.Component{
             });
         }
         catch(e){
-            // console.log(e);
+            console.log(e);
             this.setState({ loading:false });
         }
     }
 
     render() {
-        function handleClick(e){
-            const element = e.target;
-            element.classList.toggle("is-selected");
-        }
-
         if(this.state.loading){ // render the loading screen
             return (<p>Loading...</p>);
         }
@@ -52,25 +47,10 @@ export default class Storefront extends React.Component{
             <section className="featured-products">
             <h2>Featured</h2>
             {
-                this.state.books.map( ( book, index ) => index < 2 && ( // limit number of book's to 2
-                     <article className="book">
-                        <div className="bookcover">
-                            <img src={ book.volumeInfo.imageLinks.smallThumbnail } alt={ book.volumeInfo.title } />
-                        </div>
-
-                        <div className="book-info">
-                        <h2>{ book.volumeInfo.title }</h2>
-
-                        { book.volumeInfo.authors.map((author, index) => { // Authors Render
-                            return <p className="author">{ author }</p>
-                        }) }
-
-                        <p>{"Pages: " + book.volumeInfo.pageCount }</p>
-
-                        <p className="book-desc">{ book.volumeInfo.description.substring(0, 100) + "..." }</p>
-                        </div>
-                    </article>
-                ))}
+                this.state.books.map( ( book, index ) => index > this.state.books.length - 3 && ( // limit number of book's to 2
+                     <Book key={index} id={index} book={book} />
+                ))
+            }
             </section>
             </main>
         )

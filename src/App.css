@@ -82,6 +82,10 @@ nav a:hover{
   background-color: #38B6FF;
 }
 
+section{
+  text-align: center;
+}
+
 /* Storefront */
 .storefront{ /* Wrapper */
   display: flex;
@@ -107,20 +111,6 @@ nav a:hover{
   height: 260px;
   outline: 2px solid black;
   z-index:9999;
-}
-
-.book-clickable{ /* clickable book element spanning the whole width and height of it's parent (.book) */
-  position: relative;
-  top: 0px;
-  left: 0px;
-  width: 10px;
-  height: 10px;
-  outline: 1px solid red;
-  z-index: 9999;
-}
-
-.is-select{
-  box-shadow: inset 0px 0px 4px 4px darkslategray;
 }
 
 .book-info{
@@ -151,7 +141,7 @@ nav a:hover{
 }
 
 .is-selected{
-  box-shadow: inset 0px 0px 40px 40px grey;
+  box-shadow: inset 0px 0px 40px 4px lightblue;
 }
 
 /* Styles for mobiles */
@@ -159,6 +149,30 @@ nav a:hover{
   /* Storefront */
   .storefront{ /* Wrapper */
     flex-direction: column-reverse;
+  }
+
+  .main-products {
+    justify-content: center;
+  }
+
+  .main-products .book {
+    width: 400px;
+  }
+
+  .featured-products{
+    
+    text-align: center;
+    background-color: lightgray;
+  }
+
+  .featured-products .book {
+    flex-direction: column;
+    margin: 1em;
+    background-color: lightgoldenrodyellow;
+  }
+
+  .featured-products .book .book-info{
+    text-align: center;
   }
 
 }
@@ -208,5 +222,11 @@ nav a:hover{
 
   nav input:checked ~ #navitems {
     display: block;
+  }
+
+  /* StoreFront */
+
+  .main-products .book{
+    width: auto;
   }
 }
