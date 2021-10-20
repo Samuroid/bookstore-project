@@ -11,6 +11,11 @@ export default class Book extends React.Component{
             hasError: false
         };
         this.localStorageKey = "bookState";
+
+        // 1. save a react state of the selected book
+        // 2. save the book id as localStorage state
+        // 3. when the app loads read localStorage and get the book id
+        // 4. set the .is-selected class to the book component id that matches localStorage bookId
     }
 
     /**
@@ -22,23 +27,25 @@ export default class Book extends React.Component{
     handleClick = (e) =>{
         const element = e.target;
         element.classList.toggle("is-selected");
-        // set the localStorage state
+        // update local state
+        if( this.hasClass(element, "is-selected") ){
+            this.saveToLocalStorage(e.target.id, true);
+        } else{
+            this.saveToLocalStorage( e.target.id, false );
+        }
+        // set the local state of the selected book id
+    }
+
+    hasClass = (elem, className) => {
+        return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
     }
 
     /**
      * Responsible for saving the book state to storage.
      * 
      */
-    saveToLocalStorage = () => {
-        const jsonBook = JSON.stringify(this.book);
-        // check the state of isSelected and save its value
-        localStorage.setItem(this.localStorageKey, this.state.isSelected);
-        // console.log('saved to local store');
-        // console.log(localStorage.getItem(this.localStorageKey));
-    }
-
-    async componentDidMount() {
-        // console.log('### -> component did mount');
+    saveToLocalStorage = (key, value) => {
+        localStorage.setItem(key, value); // add the new key/value pair
     }
 
     componentDidCatch(error, info) {
@@ -73,8 +80,10 @@ export default class Book extends React.Component{
             return <h1>Has error</h1>
         }
         else{
+            const isSelectedClass = ( localStorage.getItem("book" + this.state.id) === "true" ) ? 'is-selected' : '';
+
             return (
-                <article id={"book" + this.state.id} onClick={(event)=>{this.handleClick(event)}} className="book">                    
+                <article id={"book" + this.state.id} onClick={(event)=>{this.handleClick(event)}} className={"book " + isSelectedClass}>                    
                     <div className="bookcover" style={{pointerEvents: 'none'}}>
                         <img style={{pointerEvents: 'none'}} src={ this.state.book.volumeInfo.imageLinks.smallThumbnail } alt={ this.state.book.volumeInfo.title } />
                     </div>
