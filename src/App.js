@@ -48,6 +48,7 @@ const Homepage = () => {
         </p>
         </section>
       </main>
+      <Footer />
     </div>
   )
 };
@@ -55,9 +56,23 @@ const Homepage = () => {
 const Bookstore = () => {
   return(
     <div>
-    <Header />
+      <Header />
       <Storefront />
+      <Footer />
     </div>
+  )
+};
+
+const Footer = () => {
+  return(
+    <footer>
+      <div className="social-icons">
+        <img src={twitterLogo} className="social-icon" alt="Twitter logo" />
+        <img src={fbLogo} className="social-icon" alt="Facebook logo" />
+        <img src={igLogo} className="social-icon" alt="Instagram logo" />
+      </div>
+      <p>hand coded by <a href="https://github.com/samuroid">samuroid</a></p>
+    </footer>
   )
 };
 

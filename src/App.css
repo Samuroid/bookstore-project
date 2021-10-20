@@ -144,6 +144,13 @@ section{
   box-shadow: inset 0px 0px 40px 4px lightblue;
 }
 
+/* Footer */
+footer{display: none}
+
+footer .social-icons{
+  padding: 0;
+}
+
 /* Styles for mobiles */
 @media(max-width: 1000px){
   /* Storefront */
@@ -228,5 +235,30 @@ section{
 
   .main-products .book{
     width: auto;
+  }
+
+  /* Footer */
+
+  footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .social-icons{
+    display: block;
+  }
+
+  footer .social-icon{
+    height: 45px;
+    padding-right: 30px
+  }
+  footer .social-icon:first-child{
+    padding-right: 22px
+  }
+
+  footer p{
+    font-family: monospace;
+    color: grey;
   }
 }
